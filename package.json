@@ -1,0 +1,25 @@
+{
+  "name": "resources-ec-logo-bridge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogoslack/resources-ec-logo-bridge.git"
+  },
+  "author": "Diogo Neves",
+  "license": "EUPL-1.2",
+  "bugs": {
+    "url": "https://github.com/diogoslack/resources-ec-logo-bridge/issues"
+  },
+  "homepage": "https://github.com/diogoslack/resources-ec-logo-bridge#readme",
+  "devDependencies": {
+    "@ecl/resources-ec-logo": "^4.4.0"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
