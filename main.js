@@ -1,23 +1,24 @@
 function getECLogos() {
   const fs = require('fs')
+  const path = require('path')
 
-  const distFolder = './node_modules/@ecl/resources-ec-logo/dist/'
-  const imageNegativeFolder = distFolder + 'negative'
-  const imagePositiveFolder = distFolder + 'positive'
-  const logoEcMute = distFolder + 'logo-ec--mute.svg'
+  const distFolder = path.resolve(__dirname, './node_modules/@ecl/resources-ec-logo/dist/')
+  const imageNegativeFolder = path.resolve(distFolder, 'negative/')
+  const imagePositiveFolder = path.resolve(distFolder, 'positive/')
+  const logoEcMute = path.resolve(distFolder, 'logo-ec--mute.svg')
 
   const images = [ logoEcMute ]
 
-  fs.readdir(imageNegativeFolder, (err, files) => {
-    files.forEach(file => {
-      images.push(file)
-    });
+  const negativeImages = fs.readdirSync(imagePositiveFolder, { withFileTypes: true });
+  const positiveImages = fs.readdirSync(imagePositiveFolder, { withFileTypes: true });
+
+
+  negativeImages.forEach(file => {
+    images.push(path.resolve(file.parentPath, file.name))
   });
 
-  fs.readdir(imagePositiveFolder, (err, files) => {
-    files.forEach(file => {
-      images.push(file)
-    });
+  positiveImages.forEach(file => {
+    images.push(path.resolve(file.parentPath, file.name))
   });
 
   return images
